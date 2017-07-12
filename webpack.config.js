@@ -11,6 +11,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 // configure the environment object for development mode
 const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 // const ENV = process.env.ENV = process.env.NODE_ENV = 'production';
+const MINIFY = false;
 
 // source and distribution folder paths
 const srcFolder = 'client';
@@ -139,7 +140,7 @@ const webpackConfig = {
 };
 
 // only minify code when in production
-if (ENV === 'production') {
+if (ENV === 'production' && MINIFY) {
   webpackConfig
     .plugins
     .push(new webpack.optimize.UglifyJsPlugin());
