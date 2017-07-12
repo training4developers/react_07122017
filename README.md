@@ -100,15 +100,14 @@ I recommend install the following Visual Studio Code extensions:
 
 From a terminal, in the root project folder (where the **package.json** file exists), the following commands can be executed to perform various project development tasks.
 
-- **npm start** - starts the web server
-- **npm run clean** - removes the **dist** folder
-- **npm run build** - removes the dist folder, builds and deploys the server app, and the web app
+- **npm start** - starts the entire application
+- **npm test** - run unit tests
+- **npm test:debug** - run unit tests in debug mode
+- **npm run clean** - removes the generated files
 - **npm run server** - runs rollup, outputs the generated server files, and executes them with nodemon
 - **npm run client** - runs the webpack development web server
-- **npm run webpack:once** - runs webpack one-time, and generates client files
-- **npm run rollup** - runs rollup to generate server code in watch mode
-- **npm run rollup:once** - runs rollup one time to generate server code
 - **npm run rest** - runs the JSON server to provide REST services
+- **npm run relay** - runs the Relay Compiler
 
 ### Useful Resources
 

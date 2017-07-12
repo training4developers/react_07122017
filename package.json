@@ -7,7 +7,7 @@
     "start": "concurrently \"npm run rest\" \"npm run server\" \"npm run client\"",
     "test": "jest --coverage",
     "test:debug": "node --inspect-brk ./node_modules/.bin/jest --runInBand --env jest-environment-node-debug",
-    "clean": "rimraf server-dist client-dist",
+    "clean": "rimraf coverage server-dist schema.graphql",
     "server": "concurrently \"babel server --out-dir server-dist --watch\" \"nodemon --watch server-dist ./server-dist/index\"",
     "client": "concurrently \"npm run relay\" \"webpack-dev-server\"",
     "rest": "json-server --watch --port 3010 db.json",
