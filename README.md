@@ -102,7 +102,9 @@ From a terminal, in the root project folder (where the **package.json** file exi
 
 - **npm start** - starts the entire application
 - **npm test** - run unit tests
-- **npm test:debug** - run unit tests in debug mode
+- **npm test -- --updateSnapshot** - run unit tests and update snapshots
+- **npm run test:coverage** - run unit tests with coverage
+- **npm run test:debug** - run unit tests in debug mode
 - **npm run clean** - removes the generated files
 - **npm run server** - runs rollup, outputs the generated server files, and executes them with nodemon
 - **npm run client** - runs the webpack development web server
