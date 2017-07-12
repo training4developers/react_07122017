@@ -12,7 +12,7 @@
     "**/client-dist": true,
     "**/dist": true
   },
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "editor.detectIndentation": false,

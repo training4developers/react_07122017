@@ -5,6 +5,7 @@
   ],
   "plugins": [
     "relay",
-    "transform-class-properties"
+    "transform-class-properties",
+    "transform-do-expressions"
   ]
 }

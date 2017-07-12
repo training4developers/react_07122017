@@ -26,6 +26,7 @@
   "homepage": "https://github.com/training4developers/react_07122017#readme",
   "devDependencies": {
     "babel-jest": "20.0.3",
+    "babel-plugin-transform-do-expressions": "6.22.0",
     "concurrently": "3.0.0",
     "enzyme": "2.9.1",
     "esformatter": "0.10.0",

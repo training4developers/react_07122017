@@ -80,6 +80,8 @@ const webpackConfig = {
                 'relay',
                 // enable support for class properties
                 'transform-class-properties',
+                // enable support for do expressions
+                'transform-do-expressions',
               ]
             }
           }
