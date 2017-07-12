@@ -1,0 +1,10 @@
+{
+  "presets": [
+    "latest",
+    "react"
+  ],
+  "plugins": [
+    "relay",
+    "transform-class-properties"
+  ]
+}
