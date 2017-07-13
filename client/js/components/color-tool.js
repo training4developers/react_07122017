@@ -18,24 +18,35 @@ export class ColorTool extends React.Component {
     };
   }
 
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({
-        colorList: this.state.colorList.slice(0,2).concat(this.state.colorList.slice(3)),
-      });
-    }, 3000);
-  }
-
   saveColor = (newColor) => {
+
+    const nextId = Math.max(...this.state.colorList.map(color => color.id)) + 1;
+
     this.setState({
-      colorList: this.state.colorList.concat(newColor),
+      colorList: this.state.colorList.concat({
+        id: nextId,
+        name: newColor
+      }),
     });
   };
+
+  deleteColor = (colorId) => {
+
+    const colorToDeleteIndex = this.state.colorList.findIndex(color => color.id === colorId);
+
+    this.setState({
+      //colorList: this.state.colorList.filter(color => color.id !== colorId),
+      colorList: [
+        ...this.state.colorList.slice(0, colorToDeleteIndex),
+        ...this.state.colorList.slice(colorToDeleteIndex + 1),
+      ],
+    });
+  }
 
   render() {
     return <div> 
       <ToolHeader headerText="Color Tool" />
-      <ItemList items={this.state.colorList}  />
+      <ItemList items={this.state.colorList} onDeleteItem={this.deleteColor}  />
       <ColorForm onSaveColor={this.saveColor} />
     </div>;
   }

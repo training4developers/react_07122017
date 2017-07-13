@@ -3,25 +3,15 @@ import PropTypes from 'prop-types';
 
 export class ListItem extends React.Component {
 
-  constructor(props) {
-    super(props);
-    console.log('constructor executed', props.item);
-
-    this.state = {
-      item: props.item,
-    };
-  }
-
-  componentWillUnmount() {
-    console.log('unmounting', this.state.item);
-  }
-
   render() {
-
-    return <li>{this.props.item}, {this.state.item}</li>;
-
+    return <li>
+      {this.props.children.id} - {this.props.children.name}
+      <button type="button"
+        onClick={() => this.props.onDeleteItem(this.props.children.id)}>
+        Delete
+      </button>
+    </li>;
   }
-
 }
 
 export class ItemList extends React.Component {
@@ -30,18 +20,9 @@ export class ItemList extends React.Component {
     items: PropTypes.arrayOf(PropTypes.string).isRequired,
   };
 
-
-
-  // static get propTypes() {
-  //   return {
-  //     items: PropTypes.arrayOf(PropTypes.string).isRequired,
-  //   };
-  // }
-
   render() {
-
     return <ul>
-      {this.props.items.map( (item, i) => <ListItem key={item} item={item} />)}
+      {this.props.items.map( item => <ListItem key={item.id} onDeleteItem={this.props.onDeleteItem}>{item}</ListItem>)}
     </ul>;
   }
 }
