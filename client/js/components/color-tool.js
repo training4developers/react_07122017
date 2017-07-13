@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { ToolHeader } from './tool-header';
+import { ItemList } from './item-list';
 
 export class ColorTool extends React.Component {
 
@@ -32,9 +33,7 @@ export class ColorTool extends React.Component {
   render() {
     return <div> 
       <ToolHeader headerText="Color Tool" />
-      <ul>
-        {this.state.colorList.map(color => <li>{color}</li>)}
-      </ul>
+      <ItemList items={this.state.colorList} />
       <form>
         <div>
           <label htmlFor="new-color">New Color:</label>
