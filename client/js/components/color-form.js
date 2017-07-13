@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export class ColorForm extends React.Component {
+import { BaseForm } from './base-form';
+
+export class ColorForm extends BaseForm {
 
   static propTypes = {
     onSaveColor: PropTypes.func.isRequired,
@@ -13,23 +15,14 @@ export class ColorForm extends React.Component {
     this.state = {
       newColor: '',
     };
-
-    this.onChange = this.onChange.bind(this);
-    this.onClick = this.onClick.bind(this);
   }
 
-  onChange(e) {
-    this.setState({
-      [ e.currentTarget.name ]: e.currentTarget.value,
-    });
-  }
-
-  onClick() {
+  onClick = () => {
     this.props.onSaveColor(this.state.newColor);
     this.setState({
       newColor: '',
     });
-  }
+  };
 
   render() {
 
