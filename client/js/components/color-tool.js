@@ -2,6 +2,7 @@ import React from 'react';
 
 import { ToolHeader } from './tool-header';
 import { ItemList } from './item-list';
+import { ColorForm } from './color-form';
 
 export class ColorTool extends React.Component {
 
@@ -10,23 +11,14 @@ export class ColorTool extends React.Component {
 
     this.state = {
       colorList: this.props.colorList.concat(),
-      newColor: '',
     };
 
-    this.onChange = this.onChange.bind(this);
-    this.onClick = this.onClick.bind(this);
+    this.saveColor = this.saveColor.bind(this);
   }
 
-  onChange(e) {
+  saveColor(newColor) {
     this.setState({
-      [ e.currentTarget.name ]: e.currentTarget.value,
-    });
-  }
-
-  onClick() {
-    this.setState({
-      colorList: this.state.colorList.concat(this.state.newColor),
-      newColor: '',
+      colorList: this.state.colorList.concat(newColor),
     });
   }
 
@@ -34,14 +26,7 @@ export class ColorTool extends React.Component {
     return <div> 
       <ToolHeader headerText="Color Tool" />
       <ItemList items={this.state.colorList} />
-      <form>
-        <div>
-          <label htmlFor="new-color">New Color:</label>
-          <input type="text" name="newColor" id="new-color"
-            value={this.state.newColor} onChange={this.onChange} />
-        </div>
-        <button type="button" onClick={this.onClick}>Add Color</button>
-      </form>
+      <ColorForm onSaveColor={this.saveColor} />
     </div>;
   }
 
