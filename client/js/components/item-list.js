@@ -1,18 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export class ListItem extends React.Component {
+// no state
+// that does not need life-cycle function
 
-  render() {
-    return <li>
-      {this.props.children.id} - {this.props.children.name}
-      <button type="button"
-        onClick={() => this.props.onDeleteItem(this.props.children.id)}>
-        Delete
-      </button>
-    </li>;
-  }
-}
+export const ListItem = props => {
+  console.log(props);
+  return <li>
+    {props.children}
+    <button type="button"
+      onClick={() => props.onDeleteItem(props.item.id)}>
+      Delete
+    </button>
+  </li>;
+};
+
+ListItem.propTypes = {
+  children: PropTypes.object,
+  onDeleteItem: PropTypes.func,
+};
 
 export class ItemList extends React.Component {
 
@@ -22,7 +28,10 @@ export class ItemList extends React.Component {
 
   render() {
     return <ul>
-      {this.props.items.map( item => <ListItem key={item.id} onDeleteItem={this.props.onDeleteItem}>{item}</ListItem>)}
+      {this.props.items.map( item => <ListItem key={item.id} item={item} onDeleteItem={this.props.onDeleteItem}>
+        <b>{item.id} - {item.name}</b>
+        <b>{item.id} - {item.name}</b>
+      </ListItem>)}
     </ul>;
   }
 }
